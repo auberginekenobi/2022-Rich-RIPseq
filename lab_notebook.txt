@@ -1,0 +1,28 @@
+9/19/2022
+Data transferred and md5sums checked.
+
+9/27/2022
+Ran trimmomatic. Sequencing quality red flags. For most of the samples, a really
+ high number of PE reads have only the forward read surviving. This means that
+ the insert sequence is short. See https://www.biostars.org/p/325174/#325193 .
+
+9/28/2022
+Rip-seq protocols:
+ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6136692/
+  2018. Uses STAR, MACS/MeTPeak. MeTPeak outperformed MACS but I don't have a 
+  pipeline set up. Optimized for m6A-MeRIP-seq.
+ https://link.springer.com/protocol/10.1007/978-1-4939-2291-8_18
+  2014. TopHat, Cufflinks, RIPSeeker. 
+
+Fastqc
+ Fastqc looks not great. IP11 analysis says 66% duplicates. Adapter content rises
+ steadily from about 20bp. We will need to trim adapters, including reverse reads,
+ deduplicate, and align by STAR, to see how many reads we are left with.
+
+9/29/2022
+Experimental design:
+- 2x non-targeting shRNA GSCs 
+- 2x MDH2 shRNA1 GSCs
+- 2x MDH2 shRNA2 GSCs
+- 2x GSCs
+- 2x DGCs
